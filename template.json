@@ -207,7 +207,7 @@
             "properties": {
                 "mode": "incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('baseUrl'), '/nested/loadBalancer.json')]",
+                    "uri": "[concat(parameters('baseUrl'), '/nested/loadbalancer.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
