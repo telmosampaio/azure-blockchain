@@ -54,10 +54,10 @@ function get_artifacts {
     echo "Retrieving network artifacts..."
 
     # Copy the artifacts from the first CA host
-    scp -o StrictHostKeyChecking=no "${CA_PREFIX}0:~/configtx.yaml" .
-    scp -o StrictHostKeyChecking=no "${CA_PREFIX}0:~/orderer.block" .
-    scp -o StrictHostKeyChecking=no "${CA_PREFIX}0:~/channel.tx" .
-    scp -o StrictHostKeyChecking=no -r "${CA_PREFIX}0:~/crypto-config" .    
+    scp -o StrictHostKeyChecking=no "${CA_PREFIX}1:~/configtx.yaml" .
+    scp -o StrictHostKeyChecking=no "${CA_PREFIX}1:~/orderer.block" .
+    scp -o StrictHostKeyChecking=no "${CA_PREFIX}1:~/channel.tx" .
+    scp -o StrictHostKeyChecking=no -r "${CA_PREFIX}1:~/crypto-config" .    
 }
 
 function distribute_ssh_key {
@@ -80,7 +80,7 @@ function get_ssh_key {
 
     # Get the ssh key from the first CA host
     # TODO: loop here waiting for the request to succeed, instead of sequencing via the template dependencies?
-    curl "http://${CA_PREFIX}0:1515/" -o ~/.ssh/id_rsa || exit 1
+    curl "http://${CA_PREFIX}1:1515/" -o ~/.ssh/id_rsa || exit 1
 
     # Fix permissions
     chmod 700 ~/.ssh
@@ -119,7 +119,7 @@ function install_orderer {
         -e ORDERER_GENERAL_LISTENADDRESS=0.0.0.0 \
         -v $HOME/configtx.yaml:/etc/hyperledger/fabric/configtx.yaml \
         -v $HOME/orderer.block:/var/hyperledger/orderer/orderer.block \
-        -v $HOME/crypto-config/ordererOrganizations/${ORDERER_ORG_DOMAIN}/orderers/${ORDERER_PREFIX}0.${ORDERER_ORG_DOMAIN}:/var/hyperledger/orderer/msp \
+        -v $HOME/crypto-config/ordererOrganizations/${ORDERER_ORG_DOMAIN}/orderers/${ORDERER_PREFIX}1.${ORDERER_ORG_DOMAIN}:/var/hyperledger/orderer/msp \
         hyperledger/fabric-orderer:${FABRIC_VERSION} orderer
 }
 

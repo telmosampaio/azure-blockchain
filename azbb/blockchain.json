@@ -26,7 +26,7 @@
                         "extensions": [
                             {
                                 "name": "blockchain-ca",
-                                "publisher": "Microsoft.Compute",
+                                "publisher": "Microsoft.Azure.Extensions",
                                 "type": "CustomScript",
                                 "typeHandlerVersion": "2.0",
                                 "autoUpgradeMinorVersion": true,
@@ -36,7 +36,7 @@
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"ca\" \"caAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"ca\" \"caAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]                        
@@ -64,7 +64,7 @@
                         "extensions": [
                             {
                                 "name": "blockchain-orderer",
-                                "publisher": "Microsoft.Compute",
+                                "publisher": "Microsoft.Azure.Extensions",
                                 "type": "CustomScript",
                                 "typeHandlerVersion": "2.0",
                                 "autoUpgradeMinorVersion": true,
@@ -74,7 +74,7 @@
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"orderer\" \"ordererAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"orderer\" \"ordererAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]  
@@ -102,7 +102,7 @@
                         "extensions": [
                             {
                                 "name": "blockchain-peer",
-                                "publisher": "Microsoft.Compute",
+                                "publisher": "Microsoft.Azure.Extensions",
                                 "type": "CustomScript",
                                 "typeHandlerVersion": "2.0",
                                 "autoUpgradeMinorVersion": true,
@@ -112,7 +112,7 @@
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"peer\" \"peerAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"peer\" \"peerAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]  
