@@ -141,7 +141,7 @@
                 "description": "The base URL for dependent assets",
                 "artifactsBaseUrl": ""
             },
-            "defaultValue": "https://gallery.azure.com/artifact/20151001/microsoft-azure-blockchain.azure-blockchain-servicehyperledger-fabric-single-member-blockchain.1.0.3/Artifacts"
+            "defaultValue": "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master"
         }
     },
     "variables": {
@@ -155,7 +155,6 @@
         "namingInfix": "[toLower(substring(concat(parameters('namePrefix'), uniqueString(resourceGroup().id)), 0, 9))]",
         "availabilitySetName": "[concat(variables('namingInfix'), 'fabricAvSet')]",
         "dnsName": "[variables('namingInfix')]",
-        "publicIPAddressName": "[concat(variables('dnsName'), '-publicip')]",
         "loadBalancerName": "[concat(variables('namingInfix'), '-LB')]",
         "loadBalancerBackendAddressPoolName": "LBBackendPool",
         "loadBalancerInboundNatRuleNamePrefix": "NAT",
@@ -184,7 +183,7 @@
         "vNet": {
             "name": "[concat(variables('namingInfix'), 'vnet')]"
         },
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vNetRGName'),parameters('vNetName'))]",
+        "vnetID": "[resourceId(parameters('vNetRGName'),'Microsoft.Network/virtualNetworks',parameters('vNetName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]"
     },
     "resources": [
@@ -533,17 +532,5 @@
         }
     ],
     "outputs": {
-        "api-endpoint": {
-            "type": "string",
-            "value": "[concat('http://', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
-        },
-        "prefix": {
-            "type": "string",
-            "value": "[variables('namingInfix')]"
-        },
-        "ssh-to-first-vm": {
-            "type": "string",
-            "value": "[concat('ssh -p ', variables('sshStartingPort'), ' ', parameters('adminUsername'), '@', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
-        }
     }
 }
