@@ -11,7 +11,7 @@ OrdererOrgs:
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
     Specs:
-      - Hostname: orderer1
+      - Hostname: orderer-vm1
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------
@@ -56,7 +56,7 @@ PeerOrgs:
     # ---------------------------------------------------------------------------
     Template:
       Count: 2
-      Hostname: peer{{.Index}}
+      Hostname: peer-vm{{.Index}}
       # Start: 5
       # Hostname: {{.Prefix}}{{.Index}} # default
     # ---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ PeerOrgs:
   - Name: Org1
     Domain: org2.example.com
     Template:
-      Hostname: peer{{.Index}}
+      Hostname: peer-vm{{.Index}}
       Count: 1
       Start: 2
     Users:
