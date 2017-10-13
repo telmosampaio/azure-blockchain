@@ -10,6 +10,8 @@
                         "vmCount": 1,
                         "osType": "linux",
                         "namePrefix": "ca",
+                        "computerNamePrefix": "ca",
+                        "adminUsername": "caAdmin",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
@@ -18,9 +20,26 @@
                             }
                         ],
                         "virtualNetwork": {
-                            "resourceGroupName": "msft-blockchain-rg",
+                            "resourceGroupName": "msft-blockchain-net-rg",
                             "name": "msft-blockchain-vnet"
-                        }
+                        },
+                        "extensions": [
+                            {
+                                "name": "blockchain-ca",
+                                "publisher": "Microsoft.Compute",
+                                "type": "CustomScript",
+                                "typeHandlerVersion": "2.0",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "fileUris": [
+                                      "/scripts/configure.sh"
+                                    ]
+                                  },
+                                  "protectedSettings": {
+                                    "commandToExecute": "/bin/bash configure.sh \"ca\" \"caAdmin\" \"artifactsUri\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                  }
+                            }
+                        ]                        
                     }
                 },
                 {
@@ -29,6 +48,8 @@
                         "vmCount": 1,
                         "osType": "linux",
                         "namePrefix": "orderer",
+                        "computerNamePrefix": "orderer",
+                        "adminUsername": "ordererAdmin",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
@@ -37,9 +58,26 @@
                             }
                         ],
                         "virtualNetwork": {
-                            "resourceGroupName": "msft-blockchain-rg",
+                            "resourceGroupName": "msft-blockchain-net-rg",
                             "name": "msft-blockchain-vnet"
-                        }
+                        },
+                        "extensions": [
+                            {
+                                "name": "blockchain-orderer",
+                                "publisher": "Microsoft.Compute",
+                                "type": "CustomScript",
+                                "typeHandlerVersion": "2.0",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "fileUris": [
+                                      "/scripts/configure.sh"
+                                    ]
+                                  },
+                                  "protectedSettings": {
+                                    "commandToExecute": "/bin/bash configure.sh \"orderer\" \"ordererAdmin\" \"artifactsUri\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                  }
+                            }
+                        ]  
                     }
                 },
                 {
@@ -48,6 +86,8 @@
                         "vmCount": 3,
                         "osType": "linux",
                         "namePrefix": "peer",
+                        "computerNamePrefix": "peer",
+                        "adminUsername": "peerAdmin",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
@@ -56,9 +96,26 @@
                             }
                         ],
                         "virtualNetwork": {
-                            "resourceGroupName": "msft-blockchain-rg",
+                            "resourceGroupName": "msft-blockchain-net-rg",
                             "name": "msft-blockchain-vnet"
-                        }
+                        },
+                        "extensions": [
+                            {
+                                "name": "blockchain-peer",
+                                "publisher": "Microsoft.Compute",
+                                "type": "CustomScript",
+                                "typeHandlerVersion": "2.0",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "fileUris": [
+                                      "/scripts/configure.sh"
+                                    ]
+                                  },
+                                  "protectedSettings": {
+                                    "commandToExecute": "/bin/bash configure.sh \"peer\" \"peerAdmin\" \"artifactsUri\" \"1\" \"ca\" \"1\" \"orderer\" \"1\" \"peer\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                  }
+                            }
+                        ]  
                     }
                 }                             
             ]
