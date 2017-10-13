@@ -37,8 +37,8 @@ function generate_artifacts {
     export FABRIC_CFG_PATH=$PWD
 
     # Parse configuration templates
-    #sed -e "s/{{PREFIX}}/${PREFIX}/g" crypto-config_template.yaml > crypto-config.yaml
-    #sed -e "s/{{PREFIX}}/${PREFIX}/g" configtx_template.yaml > configtx.yaml
+    sed -e "s/{{PREFIX}}/${PREFIX}/g" crypto-config_template.yaml > crypto-config.yaml
+    sed -e "s/{{PREFIX}}/${PREFIX}/g" configtx_template.yaml > configtx.yaml
 
     # Generate crypto config
     ./release/${os_arch}/bin/cryptogen generate --config=./crypto-config.yaml
