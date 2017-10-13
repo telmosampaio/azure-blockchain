@@ -1,0 +1,67 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "osType": "linux",
+                        "namePrefix": "ca",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "blockchain",
+                                "isPublic": false
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "resourceGroupName": "msft-blockchain-rg",
+                            "name": "msft-blockchain-vnet"
+                        }
+                    }
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "osType": "linux",
+                        "namePrefix": "orderer",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "blockchain",
+                                "isPublic": false
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "resourceGroupName": "msft-blockchain-rg",
+                            "name": "msft-blockchain-vnet"
+                        }
+                    }
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 3,
+                        "osType": "linux",
+                        "namePrefix": "peer",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "blockchain",
+                                "isPublic": false
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "resourceGroupName": "msft-blockchain-rg",
+                            "name": "msft-blockchain-vnet"
+                        }
+                    }
+                }                             
+            ]
+        }
+    }
+}
