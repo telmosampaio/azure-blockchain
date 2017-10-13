@@ -11,7 +11,7 @@
                         "osType": "linux",
                         "namePrefix": "ca",
                         "computerNamePrefix": "ca",
-                        "adminUsername": "caAdmin",
+                        "adminUsername": "azureuser",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
@@ -49,7 +49,7 @@
                         "osType": "linux",
                         "namePrefix": "orderer",
                         "computerNamePrefix": "orderer",
-                        "adminUsername": "ordererAdmin",
+                        "adminUsername": "azureuser",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
@@ -87,7 +87,7 @@
                         "osType": "linux",
                         "namePrefix": "peer",
                         "computerNamePrefix": "peer",
-                        "adminUsername": "peerAdmin",
+                        "adminUsername": "azureuser",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [
                             {
