@@ -37,8 +37,8 @@ function generate_artifacts {
     export FABRIC_CFG_PATH=$PWD
 
     # Parse configuration templates
-    sed -e "s/{{PREFIX}}/${PREFIX}/g" crypto-config_template.yaml > crypto-config.yaml
-    sed -e "s/{{PREFIX}}/${PREFIX}/g" configtx_template.yaml > configtx.yaml
+    #sed -e "s/{{PREFIX}}/${PREFIX}/g" crypto-config_template.yaml > crypto-config.yaml
+    #sed -e "s/{{PREFIX}}/${PREFIX}/g" configtx_template.yaml > configtx.yaml
 
     # Generate crypto config
     ./release/${os_arch}/bin/cryptogen generate --config=./crypto-config.yaml
@@ -134,12 +134,12 @@ function install_peer {
 
     # Start Peer
     docker run -d --restart=always -p 7051:7051 -p 7053:7053 \
-        -e CORE_PEER_ID=${PEER_PREFIX}${NODE_INDEX}.${PEER_ORG_DOMAIN} \
+        -e CORE_PEER_ID=${HOSTNAME}.${PEER_ORG_DOMAIN} \
         -e CORE_PEER_LOCALMSPID=Org1MSP \
         -e CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock \
         -v /var/run:/host/var/run \
         -v $HOME/configtx.yaml:/etc/hyperledger/fabric/configtx.yaml \
-        -v $HOME/crypto-config/peerOrganizations/${PEER_ORG_DOMAIN}/peers/${PEER_PREFIX}${NODE_INDEX}.${PEER_ORG_DOMAIN}:/etc/hyperledger/fabric/msp/sampleconfig \
+        -v $HOME/crypto-config/peerOrganizations/${PEER_ORG_DOMAIN}/peers/${HOSTNAME}.${PEER_ORG_DOMAIN}:/etc/hyperledger/fabric/msp/sampleconfig \
         hyperledger/fabric-peer:${FABRIC_VERSION} peer node start --peer-defaultchain=false
 }
 
