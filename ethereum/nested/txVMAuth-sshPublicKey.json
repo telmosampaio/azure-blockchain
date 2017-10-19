@@ -17,9 +17,6 @@
       "loadBalancerBackendAddressPoolName": {
         "type": "string"
       },
-      "loadBalancerInboundNatRuleNamePrefix": {
-        "type": "string"
-      },
       "txSubnetRef": {
         "type": "string"
       },
@@ -66,8 +63,7 @@
     "variables": {
       "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
       "loadBalancerID": "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancerName'))]",
-      "loadBalancerBackendAddressPoolID": "[concat(variables('loadBalancerID'), '/backendAddressPools/', parameters('loadBalancerBackendAddressPoolName'))]",
-      "loadBalancerInboundNatRuleIDprefix": "[concat(variables('loadBalancerID'),'/inboundNatRules/',parameters('loadBalancerInboundNatRuleNamePrefix'))]"
+      "loadBalancerBackendAddressPoolID": "[concat(variables('loadBalancerID'), '/backendAddressPools/', parameters('loadBalancerBackendAddressPoolName'))]"
     },
     "resources": [
       {
@@ -91,11 +87,6 @@
                 "loadBalancerBackendAddressPools": [
                   {
                     "id": "[variables('loadBalancerBackendAddressPoolID')]"
-                  }
-                ],
-                "loadBalancerInboundNatRules": [
-                  {
-                    "id": "[concat(variables('loadBalancerInboundNatRuleIDprefix'), copyindex())]"
                   }
                 ]
               }
