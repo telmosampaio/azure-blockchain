@@ -9,7 +9,8 @@
                     "settings": {
                         "vmCount": 1,
                         "osType": "linux",
-                        "namePrefix": "jb1",
+                        "namePrefix": "jb",
+                        "computerNamePrefix": "jb",
                         "adminUsername": "jbAdmin",
                         "adminPassword": "testPassw0rd!23",
                         "nics": [

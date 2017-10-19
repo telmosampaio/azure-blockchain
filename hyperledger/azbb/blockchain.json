@@ -32,11 +32,11 @@
                                 "autoUpgradeMinorVersion": true,
                                 "settings": {
                                     "fileUris": [
-                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/scripts/configure.sh"
+                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb/scripts/configure.sh"
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"ca\" \"caAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"ca\" \"azureuser\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]                        
@@ -70,11 +70,11 @@
                                 "autoUpgradeMinorVersion": true,
                                 "settings": {
                                     "fileUris": [
-                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/scripts/configure.sh"
+                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb/scripts/configure.sh"
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"orderer\" \"ordererAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"orderer\" \"azureuser\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]  
@@ -108,11 +108,11 @@
                                 "autoUpgradeMinorVersion": true,
                                 "settings": {
                                     "fileUris": [
-                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/scripts/configure.sh"
+                                      "https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb/scripts/configure.sh"
                                     ]
                                   },
                                   "protectedSettings": {
-                                    "commandToExecute": "/bin/bash configure.sh \"peer\" \"peerAdmin\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
+                                    "commandToExecute": "/bin/bash configure.sh \"peer\" \"azureuser\" \"https://raw.githubusercontent.com/telmosampaio/azure-blockchain/master/hyperledger/azbb/\" \"1\" \"ca-vm\" \"1\" \"orderer-vm\" \"1\" \"peer-vm\" \"3\" \"caUser\" \"caP@$$w0rd\" \"uniquednsname\""
                                   }
                             }
                         ]  
